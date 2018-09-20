@@ -127,18 +127,6 @@ function ItemDAO(database) {
     this.addReview = function (itemId, comment, name, stars, callback) {
         "use strict";
 
-        /*
-         * TODO-lab4
-         *
-         * LAB #4: Implement addReview().
-         *
-         * Using the itemId parameter, update the appropriate document in the
-         * "item" collection with a new review. Reviews are stored as an
-         * array value for the key "reviews". Each review has the fields:
-         * "name", "comment", "stars", and "date".
-         *
-         */
-
         var reviewDoc = {
             name: name,
             comment: comment,
