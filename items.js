@@ -104,24 +104,11 @@ function ItemDAO(database) {
     this.getItem = function (itemId, callback) {
         "use strict";
 
-        /*
-         * TODO-lab3
-         *
-         * LAB #3: Implement the getItem() method.
-         *
-         * Using the itemId parameter, query the "item" collection by
-         * _id and pass the matching item to the callback function.
-         *
-         */
-
-        var item = this.createDummyItem();
-
-        // TODO-lab3 Replace all code above (in this method).
-
-        // TODO Include the following line in the appropriate
-        // place within your code to pass the matching item
-        // to the callback.
-        callback(item);
+        database.collection('item').find({ _id: itemId })
+            .toArray(function (err, item) {
+                assert.equal(err, null);
+                callback(item[0]);
+            })
     }
 
 
@@ -159,15 +146,10 @@ function ItemDAO(database) {
             date: Date.now()
         }
 
-        // TODO replace the following two lines with your code that will
-        // update the document with a new review.
-        var doc = this.createDummyItem();
-        doc.reviews = [reviewDoc];
-
-        // TODO Include the following line in the appropriate
-        // place within your code to pass the updated doc to the
-        // callback.
-        callback(doc);
+        database.collection('item').findOneAndUpdate({ "_id": itemId }, { $push: { reviews: reviewDoc } }
+            , function (err, result) {
+                callback(result);
+            })
     }
 
 
