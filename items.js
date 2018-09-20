@@ -148,7 +148,7 @@ function ItemDAO(database) {
 
         database.collection('item').findOneAndUpdate({ "_id": itemId }, { $push: { reviews: reviewDoc } }
             , function (err, result) {
-                callback(result);
+                callback(result.value);
             })
     }
 
