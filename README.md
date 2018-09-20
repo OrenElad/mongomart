@@ -17,3 +17,11 @@ then run the following commands:
 Import the "item" collection: mongoimport -d mongomart -c item data/items.json
 Import the "cart" collection: mongoimport -d mongomart -c cart data/cart.json
 ```
+
+## Screenshots
+### home page:
+![home page screenshot](/screenshots/homepage.png?raw=true)
+### item page:
+![item page screenshot](/screenshots/singleItem.png?raw=true)
+### cart page:
+![cart page screenshot](/screenshots/cart.png?raw=true)
