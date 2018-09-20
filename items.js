@@ -93,22 +93,11 @@ function ItemDAO(database) {
     this.getNumSearchItems = function (query, callback) {
         "use strict";
 
-        var numItems = 0;
-
-        /*
-        * TODO-lab2B
-        *
-        * LAB #2B: Using the value of the query parameter passed to this
-        * method, count the number of items in the "item" collection matching
-        * a text search. Pass the count to the callback function.
-        *
-        * getNumSearchItems() depends on the same text index as searchItems().
-        * Before implementing this method, ensure that you've already created
-        * a SINGLE text index on title, slogan, and description. You should
-        * simply do this in the mongo shell.
-        */
-
-        callback(numItems);
+        database.collection('item').find({ $text: { $search: `\"${query}\"` } })
+            .count(function (err, count) {
+                assert.equal(err, null);
+                callback(count);
+            })
     }
 
 
