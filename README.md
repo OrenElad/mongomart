@@ -18,6 +18,13 @@ Import the "item" collection: mongoimport -d mongomart -c item data/items.json
 Import the "cart" collection: mongoimport -d mongomart -c cart data/cart.json
 ```
 
+in order to use the search functionality, a text index must be created, run mongo shell using `mongo` command, and then run the following commands:
+```bash
+use mongomart
+db.item.createIndex({title: "text", slogan: "text", description: "text"})
+```
+
+
 ## Screenshots
 ### home page:
 ![home page screenshot](/screenshots/homepage.png?raw=true)
