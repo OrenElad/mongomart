@@ -11,7 +11,7 @@ npm install
 node mongomart.js
 ```
 
-## Populating MongoDB database with items
+## MongoDB database setup
 to crate and populate a mongomart database, make sure you have a mongod running version 3.2.x of MongoDB,
 then run the following commands:
 
