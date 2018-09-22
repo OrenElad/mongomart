@@ -6,7 +6,7 @@ https://mongomarty.herokuapp.com/
 
 ## Installation
 ```bash
-git clone https://github.com/ratracegrad/mongomart
+git clone https://github.com/muubar/mongomart.git
 npm install
 node mongomart.js
 ```
